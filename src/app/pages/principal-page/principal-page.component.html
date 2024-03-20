@@ -1,0 +1,87 @@
+
+<h2>Todos los personajes</h2>
+<hr>
+
+@for (character of servicioNaruto.personajesComputados(); track $index) {
+    
+        @if(!personajesProhibidos.includes(character.name)){
+
+                <div class="cajaTarjeta"> 
+
+                    <div class="tarjeta" >
+                        <div class="parteDelantera">
+                            <div class="imagen">
+                                @if (character.images.length != 0 ) {
+                                    <img [src]="character.images[0]" [alt]="character.name">
+                                }@else{
+                                    <img src="https://static.vecteezy.com/system/resources/previews/009/007/126/non_2x/document-file-not-found-search-no-result-concept-illustration-flat-design-eps10-modern-graphic-element-for-landing-page-empty-state-ui-infographic-icon-vector.jpg" [alt]="character.name">
+                                }
+                            </div>
+                            <h5>{{character.name}}</h5>
+                        </div>
+
+                        <div class="parteTrasera">
+                            <div class="info">
+                                @if (character.personal.sex) {
+                                    <strong>Sexo: </strong>{{character.personal.sex}}
+                                }@else {
+                                    <strong>Sexo: </strong>Desconocido
+                                }
+                                <br>
+                                <strong>Principales Jutsus: </strong>
+                                @for (jutsu of character.jutsu; track jutsu; let i = $index) {
+                                    @if (i <= 2) {
+                                        <li>{{jutsu}}</li>
+                                    }
+                                }@empty {
+                                    Jutsu desconocido
+                                    <br>
+                                }
+                 
+                                @if (character.debut?.anime) {
+                                    <strong>Debut: </strong> {{character.debut?.anime}}
+                                }@else if (character.debut?.movie) {
+                                    <strong>Debut: </strong> {{character.debut?.movie}}
+                                }@else (){
+                                    <strong>Debut: </strong> Debut desconocido
+                                 }
+                                <br>
+                                <a [routerLink]="['/infoPersonal', character.id ]">Ver mas...</a>
+                            </div>
+                        </div>
+
+                    </div> 
+
+                </div>
+
+        }
+}@empty {
+    <div class="texto">
+        <h1>Wiki Naruto</h1>
+        <p class="texto2">Aqui podras encontrar informacion sobre tu anime favorito</p>
+    </div>
+}
+
+
+@if(servicioNaruto.personajesComputados()){
+    @if (servicioNaruto.personajesComputados()!.length != 0) {
+        <svg xmlns="http://www.w3.org/2000/svg" class="right" width="38" height="38" fill="white" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16" (click)="derecha()">
+            <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1"/>
+          </svg>
+    }
+}
+
+
+
+@if (this.pagina != 1) {
+    <svg xmlns="http://www.w3.org/2000/svg"  width="38" height="38" fill="white" class="bi bi-arrow-left-square-fill izquierda" viewBox="0 0 16 16" (click)="izquierda()">
+        <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1"/>
+    </svg>
+}
+
+
+
+
+
+
+

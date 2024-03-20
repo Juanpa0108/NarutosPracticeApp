@@ -1,0 +1,42 @@
+h2{
+    align-items: center;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+}
+
+
+h1, .texto2{
+    align-items: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+span{
+    margin-bottom: 10px;
+}
+
+span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color: rgb(119, 127, 134);
+}
+
+.cajaInformacion{
+    align-content: center;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-right: 100px;
+}
+
+.informacion{
+    border-bottom: black 0.5px solid;
+    margin-left: 100px;
+    margin-top: 40px;
+    padding-bottom: 10px;
+}
+

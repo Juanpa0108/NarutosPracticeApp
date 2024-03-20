@@ -1,0 +1,13 @@
+<input type="text"
+class="input"
+placeholder="Ingrese nombre completo"
+#txtBusqueda
+(keyup)="buscarPersonaje(txtBusqueda.value)"
+>
+
+    @if (this.NarutoService.personajesBuscadosComputados()) {
+        <div style="background-color: black;" [routerLink]="['/infoPersonal', this.NarutoService.personajesBuscadosComputados()?.id]" (click)="limpieza(txtBusqueda)"> 
+            <img [src]="this.NarutoService.personajesBuscadosComputados()!.images[0]" [alt]="this.NarutoService.personajesBuscadosComputados()?.name">
+            <strong style="color: white;">{{this.NarutoService.personajesBuscadosComputados()!.name}}</strong>
+        </div>
+    }

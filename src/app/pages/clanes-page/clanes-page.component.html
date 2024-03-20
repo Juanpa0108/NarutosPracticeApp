@@ -1,0 +1,31 @@
+<h2>Clanes</h2>
+<hr>
+
+<div class="cajaInformacion">
+
+    @for (clanes of servicioClanes.clanesComputed(); track $index) {
+    
+        <div class="informacion">
+           <strong>Nombre: </strong>{{clanes.name}}
+           <br>
+       
+           
+            <strong>Usuarios: </strong>
+           
+           @for (usuarios of clanes.characters; track $index) {
+                <span [routerLink]="['/infoPersonal', usuarios.id]">{{usuarios.name}}</span>
+                <br>
+           }
+        
+        </div>
+    
+    }@empty {
+
+        <div class="texto">
+            <h1>Wiki Naruto</h1>
+            <p class="texto2">Aqui podras encontrar informacion sobre tu anime favorito</p>
+        </div>
+        
+    }
+
+</div>

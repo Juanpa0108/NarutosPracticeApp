@@ -1,0 +1,25 @@
+input, div{
+    width: 250px;
+    border: none;
+    height: 30px;
+    padding-left: 10px;
+
+}
+
+input:hover{
+    cursor:text;
+}
+
+img{
+    width: 30px;
+    height: 20px;
+    float: left;
+    margin-top: 6px;
+}
+
+div:hover{
+    cursor: pointer;
+}
+strong{
+    margin-top: 8px;
+}

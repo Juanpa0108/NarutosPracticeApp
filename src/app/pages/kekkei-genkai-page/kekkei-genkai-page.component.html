@@ -1,0 +1,34 @@
+<h2>Tecnicas de linea sucesoria</h2>
+<hr>
+
+<div class="cajaInformacion">
+
+    @for (kkg of serviciokkG.kkgComputados(); track $index) {
+    
+        <div class="informacion">
+           <strong>Nombre: </strong>{{kkg.name}}
+           <br>
+       
+           
+            <strong>Usuarios: </strong>
+           
+           @for (usuarios of kkg.characters; track $index) {
+                <span [routerLink]="['/infoPersonal', usuarios.id]">{{usuarios.name}}</span>
+                <br>
+           }
+        
+        </div>
+    
+    }@empty {
+
+        <div class="texto">
+            <h1>Wiki Naruto</h1>
+            <p class="texto2">Aqui podras encontrar informacion sobre tu anime favorito</p>
+        </div>
+        
+    }
+
+</div>
+
+
+

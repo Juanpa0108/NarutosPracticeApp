@@ -1,0 +1,24 @@
+.jutsus{
+    float: right;
+    clear: both;
+    margin-right: 20px;
+}
+
+.informacionNaruto{
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+
+img{
+    width: 250px;
+    height: 200px;
+    border-radius: 5px;
+    border: black 1.5px solid;
+    float: left;
+    margin-right: 5px;
+}
+
+p{
+    font-size: 28px;
+    font-weight: bold;
+}

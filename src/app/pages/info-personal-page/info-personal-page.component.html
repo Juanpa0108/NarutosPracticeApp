@@ -1,0 +1,123 @@
+@if (this.narutoService.personajePorIdComputado()) {
+
+
+    <div class="jutsus">
+        <!-- Jutsus -->
+        @if (this.narutoService.personajePorIdComputado()?.jutsu) {
+            <strong>Jutsus:</strong>
+            @for (Jutsu of this.narutoService.personajePorIdComputado()?.jutsu; track $index) {
+                <li>{{Jutsu}}</li>
+            }
+        }@else {
+            <strong>Jutsus Desconocidos</strong>
+        }
+    </div>
+
+    <div class="informacionNaruto">
+
+        <p> {{this.narutoService.personajePorIdComputado()?.name}}</p>
+
+    <!-- Imagenes -->
+    @if (this.narutoService.personajePorIdComputado()!.images.length >= 2) {
+        <img [src]="this.narutoService.personajePorIdComputado()!.images[1]" [alt]="this.narutoService.personajePorIdComputado()?.name">
+    }@else {
+        <img [src]="this.narutoService.personajePorIdComputado()!.images[0]" [alt]="this.narutoService.personajePorIdComputado()?.name">
+    }
+
+    <!-- Nombre y familiar -->
+
+    @if (this.narutoService.personajePorIdComputado()?.family) {
+        @if (this.narutoService.personajePorIdComputado()?.family?.father) {
+            <strong>Padre: </strong> {{this.narutoService.personajePorIdComputado()?.family?.father}}<br>
+        }
+        @if (this.narutoService.personajePorIdComputado()?.family?.mother) {
+            <strong>Madre:</strong> {{this.narutoService.personajePorIdComputado()?.family?.mother}}<br>
+        }
+        @if (this.narutoService.personajePorIdComputado()?.family?.son) {
+            <strong>Hijo:</strong> {{this.narutoService.personajePorIdComputado()?.family?.son}}<br>
+        }
+
+         @if (this.narutoService.personajePorIdComputado()?.family?.['adoptive son']) {
+         <strong>Hijo adoptivo:</strong>  {{this.narutoService.personajePorIdComputado()?.family?.['adoptive son']}}<br>
+         }
+
+        }
+
+    @if (this.narutoService.personajePorIdComputado()?.personal) {
+        @if (this.narutoService.personajePorIdComputado()?.personal?.birthdate) {
+            <strong>Cumpleaños:</strong> {{this.narutoService.personajePorIdComputado()?.personal?.birthdate}}<br>
+        }
+        @if (this.narutoService.personajePorIdComputado()?.personal?.age) {
+            @if (this.narutoService.personajePorIdComputado()?.personal?.age?.['Part I']) {
+                <strong>Edad: (naturo) </strong> {{this.narutoService.personajePorIdComputado()?.personal!.age?.['Part I']}} años<br>  
+            }
+            @if (this.narutoService.personajePorIdComputado()?.personal?.age?.['Part II']) {
+                <strong>Edad: (naturo Shippuden) </strong> {{this.narutoService.personajePorIdComputado()?.personal!.age?.['Part II']}} años<br> 
+            }
+        }
+    }
+
+    @if (this.narutoService.personajePorIdComputado()?.personal?.kekkeiGenkai) {
+        @if (this.narutoService.personajePorIdComputado()?.personal?.kekkeiGenkai!.length >= 2) {
+            <strong>Tecnica de linea sucesoria:</strong> {{this.narutoService.personajePorIdComputado()?.personal?.kekkeiGenkai}}<br>
+        }@else {
+            <strong>Tecnicas de linea sucesoria:</strong> 
+        @for (kkg of this.narutoService.personajePorIdComputado()?.personal?.kekkeiGenkai; track $index) {
+             {{kkg}}
+            <br>
+        }<br>
+        }
+        
+    }
+
+    @if (this.narutoService.personajePorIdComputado()?.personal?.classification) {
+        @if (this.narutoService.personajePorIdComputado()?.personal?.classification!.length >= 2) {
+            <strong>Clasificado:</strong> {{this.narutoService.personajePorIdComputado()?.personal?.classification}}<br>
+        }@else {
+            <strong>Clasificado:</strong>
+            @for (clasificacion of this.narutoService.personajePorIdComputado()?.personal?.classification; track $index) {
+                 {{clasificacion}}
+                <br>
+            }
+        }
+    }
+
+
+
+    <!-- Debut y habilidades -->
+
+    @if (this.narutoService.personajePorIdComputado()?.debut?.anime) {
+            <strong>Debut: </strong> {{this.narutoService.personajePorIdComputado()?.debut?.anime}}<br>
+    }@else if (this.narutoService.personajePorIdComputado()?.debut?.movie) {
+           <strong>Debut: </strong> {{this.narutoService.personajePorIdComputado()?.debut?.movie}}<br>
+    }@else (){
+        <strong>Debut: </strong> Debut desconocido <br>
+    }
+    
+    @if (this.narutoService.personajePorIdComputado()?.debut?.appearsIn) {
+        <strong>Aparece en:</strong> {{this.narutoService.personajePorIdComputado()?.debut?.appearsIn}}
+        <br>
+    }
+
+    
+
+    @if (this.narutoService.personajePorIdComputado()?.natureType) {
+        <strong>Naturaleza del chakra:</strong> 
+        @for (naturaleza of this.narutoService.personajePorIdComputado()?.natureType; track $index) {
+
+            {{naturaleza}}
+            <br>
+        }
+    }
+
+    @if (this.narutoService.personajePorIdComputado()?.personal?.affiliation) {
+            <strong>Pertenece a: </strong> {{this.narutoService.personajePorIdComputado()?.personal?.affiliation}}
+    }
+</div>
+ 
+}
+
+
+
+
+
